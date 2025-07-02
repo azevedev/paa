@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Tab switching functionality
+    // Funcionalidade de troca de abas
     const matrixTabBtn = document.getElementById('matrix-tab-btn');
     const roomsTabBtn = document.getElementById('rooms-tab-btn');
     const matrixTab = document.getElementById('matrix-tab');
     const roomsTab = document.getElementById('rooms-tab');
 
-    // Matrix Multiplication Tab
+    // Aba de Multiplicação de Matrizes
     const matrixInputs = document.getElementById('matrix-inputs');
     const addMatrixBtn = document.getElementById('add-matrix-btn');
     const calculateMatrixBtn = document.getElementById('calculate-matrix-btn');
@@ -31,9 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
         matrixTab.classList.remove('active');
     });
 
-
-
-    // Add initial matrix input
+    // Adiciona input de matriz inicial
     addMatrixInput();
 
     addMatrixBtn.addEventListener('click', addMatrixInput);
@@ -43,15 +41,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const div = document.createElement('div');
         div.className = 'matrix-input';
         div.innerHTML = `
-            <label>Matrix ${count} Dimensions:</label>
-            <input type="number" class="rows" placeholder="Rows" min="1">
+            <label>Matriz ${count} Dimensões:</label>
+            <input type="number" class="rows" placeholder="Linhas" min="1">
             <span>x</span>
-            <input type="number" class="cols" placeholder="Columns" min="1">
+            <input type="number" class="cols" placeholder="Colunas" min="1">
             <button class="remove-btn">×</button>
         `;
         matrixInputs.appendChild(div);
         
-        // Add remove functionality
+        // Adiciona funcionalidade de remover
         const removeBtn = div.querySelector('.remove-btn');
         removeBtn.addEventListener('click', () => {
             div.style.animation = 'fadeOut 0.3s ease';
@@ -65,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateMatrixLabels() {
         const inputs = matrixInputs.querySelectorAll('.matrix-input');
         inputs.forEach((input, index) => {
-            input.querySelector('label').textContent = `Matrix ${index + 1} Dimensions:`;
+            input.querySelector('label').textContent = `Matriz ${index + 1} Dimensões:`;
         });
     }
 
@@ -74,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const inputs = matrixInputs.querySelectorAll('.matrix-input');
         
         if (inputs.length < 2) {
-            matrixResult.textContent = 'Please add at least 2 matrices';
+            matrixResult.textContent = 'Adicione pelo menos 2 matrizes';
             matrixResult.style.color = 'red';
             matrixResult.style.padding = '20px';
             return;
@@ -89,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (isNaN(rows) || isNaN(cols) || rows < 1 || cols < 1) {
                 isValid = false;
-                matrixResult.textContent = 'Please enter valid dimensions for all matrices';
+                matrixResult.textContent = 'Insira dimensões válidas para todas as matrizes';
                 matrixResult.style.color = 'red';
                 matrixResult.style.padding = '20px';
                 return;
@@ -97,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (index > 0 && dimensions[index-1][1] !== rows) {
                 isValid = false;
-                matrixResult.textContent = `Matrix ${index} columns (${dimensions[index-1][1]}) must match Matrix ${index+1} rows (${rows})`;
+                matrixResult.textContent = `Colunas da Matriz ${index} (${dimensions[index-1][1]}) devem ser iguais às linhas da Matriz ${index+1} (${rows})`;
                 matrixResult.style.color = 'red';
                 matrixResult.style.padding = '20px';
                 return;
@@ -107,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         if (!isValid && matrixResult.textContent === '') {
-            matrixResult.textContent = 'Please enter valid dimensions for all matrices';
+            matrixResult.textContent = 'Insira dimensões válidas para todas as matrizes';
             matrixResult.style.color = 'red';
             matrixResult.style.padding = '20px';
             return;
@@ -115,19 +113,19 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (isValid) {
             const minMultiplications = matrixChainOrder(dimensions);
-            matrixResult.textContent = `Minimum multiplications needed: ${minMultiplications}`;
+            matrixResult.textContent = `Mínimo de multiplicações necessárias: ${minMultiplications}`;
             matrixResult.style.color = 'black';
             matrixResult.style.padding = '20px';
         }
     });
 
-    // Waiting Rooms Tab
+    // Aba de Salas de Espera
     const lectureInputs = document.getElementById('lecture-inputs');
     const addLectureBtn = document.getElementById('add-lecture-btn');
     const calculateRoomsBtn = document.getElementById('calculate-rooms-btn');
     const roomsResult = document.getElementById('rooms-result');
 
-    // Add initial lecture input
+    // Adiciona input de aula inicial
     addLectureInput();
 
     addLectureBtn.addEventListener('click', addLectureInput);
@@ -137,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const div = document.createElement('div');
         div.className = 'lecture-input';
         div.innerHTML = `
-            <label>Lecture ${count}:</label>
+            <label>Aula ${count}:</label>
             <input type="time" class="start-time" value="09:00">
             <span>-</span>
             <input type="time" class="end-time" value="10:00">
@@ -145,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         lectureInputs.appendChild(div);
         
-        // Add remove functionality
+        // Adiciona funcionalidade de remover
         const removeBtn = div.querySelector('.remove-btn');
         removeBtn.addEventListener('click', () => {
             div.style.animation = 'fadeOut 0.3s ease';
@@ -159,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateLectureLabels() {
         const inputs = lectureInputs.querySelectorAll('.lecture-input');
         inputs.forEach((input, index) => {
-            input.querySelector('label').textContent = `Lecture ${index + 1}:`;
+            input.querySelector('label').textContent = `Aula ${index + 1}:`;
         });
     }
 
@@ -168,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const inputs = lectureInputs.querySelectorAll('.lecture-input');
         
         if (inputs.length === 0) {
-            roomsResult.textContent = 'Please add at least one lecture';
+            roomsResult.textContent = 'Adicione pelo menos uma aula';
             roomsResult.style.color = 'red';
             roomsResult.style.padding = '20px';
             return;
@@ -189,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (start >= end) {
                 isValid = false;
-                roomsResult.textContent = 'End time must be after start time for all lectures';
+                roomsResult.textContent = 'O horário de término deve ser após o horário de início para todas as aulas';
                 roomsResult.style.color = 'red';
                 roomsResult.style.padding = '20px';
                 return;
@@ -199,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         if (!isValid && roomsResult.textContent === '') {
-            roomsResult.textContent = 'Please enter valid times for all lectures';
+            roomsResult.textContent = 'Insira horários válidos para todas as aulas';
             roomsResult.style.color = 'red';
             roomsResult.style.padding = '20px';
             return;
@@ -207,21 +205,20 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (isValid) {
             const minRooms = minMeetingRooms(lectures);
-            roomsResult.textContent = `Minimum rooms needed: ${minRooms}`;
+            roomsResult.textContent = `Mínimo de salas necessárias: ${minRooms}`;
             roomsResult.style.color = 'black';
             roomsResult.style.padding = '20px';
         }
     });
 
-    // Convert HH:MM to minutes since midnight
+    // Converte HH:MM para minutos desde meia-noite
     function convertTimeToMinutes(timeStr) {
         const [hours, minutes] = timeStr.split(':').map(Number);
         return hours * 60 + minutes;
     }
 
-
-     // Matrix Chain Multiplication Algorithm
-     function matrixChainOrder(dims) {
+    // Algoritmo de Cadeia de Multiplicação de Matrizes
+    function matrixChainOrder(dims) {
         const n = dims.length;
         const dp = Array(n).fill().map(() => Array(n).fill(0));
         
@@ -242,7 +239,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return dp[0][n-1];
     }
 
-    // Minimum Meeting Rooms Algorithm
+    // Algoritmo de Mínimo de Salas de Reunião
     function minMeetingRooms(intervals) {
         if (intervals.length === 0) return 0;
         
