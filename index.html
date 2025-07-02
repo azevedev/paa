@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Calculator</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Algorithm Calculator</h1>
+        
+        <div class="tab-switcher">
+            <button id="matrix-tab-btn" class="active">Matrix Multiplication</button>
+            <button id="rooms-tab-btn">Waiting Rooms</button>
+        </div>
+        
+        <div id="matrix-tab" class="tab-content active">
+            <div class="input-container">
+                <div id="matrix-inputs">
+                    <div class="matrix-input">
+                        <label>Matrix 1 Dimensions:</label>
+                        <input type="number" class="rows" placeholder="Rows" min="1">
+                        <span>x</span>
+                        <input type="number" class="cols" placeholder="Columns" min="1">
+                        <button class="remove-btn">×</button>
+                    </div>
+                </div>
+                <button id="add-matrix-btn" class="add-btn">+ Add Matrix</button>
+                <button id="calculate-matrix-btn" class="calculate-btn">Calculate</button>
+            </div>
+            <div id="matrix-result" class="result"></div>
+        </div>
+        
+        <div id="rooms-tab" class="tab-content">
+            <div class="input-container">
+                <div id="lecture-inputs">
+                    <div class="lecture-input">
+                        <label>Lecture 1:</label>
+                        <input type="time" class="start-time" value="09:00">
+                        <span>-</span>
+                        <input type="time" class="end-time" value="10:00">
+                        <button class="remove-btn">×</button>
+                    </div>
+                </div>
+                <button id="add-lecture-btn" class="add-btn">+ Add Lecture</button>
+                <button id="calculate-rooms-btn" class="calculate-btn">Calculate</button>
+            </div>
+            <div id="rooms-result" class="result"></div>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>
