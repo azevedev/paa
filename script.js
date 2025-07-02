@@ -121,28 +121,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Matrix Chain Multiplication Algorithm
-    function matrixChainOrder(dims) {
-        const n = dims.length;
-        const dp = Array(n).fill().map(() => Array(n).fill(0));
-        
-        for (let len = 2; len <= n; len++) {
-            for (let i = 0; i < n - len + 1; i++) {
-                const j = i + len - 1;
-                dp[i][j] = Infinity;
-                
-                for (let k = i; k < j; k++) {
-                    const cost = dp[i][k] + dp[k+1][j] + dims[i][0] * dims[k][1] * dims[j][1];
-                    if (cost < dp[i][j]) {
-                        dp[i][j] = cost;
-                    }
-                }
-            }
-        }
-        console.table(dp);
-        return dp[0][n-1];
-    }
-
     // Waiting Rooms Tab
     const lectureInputs = document.getElementById('lecture-inputs');
     const addLectureBtn = document.getElementById('add-lecture-btn');
@@ -239,6 +217,29 @@ document.addEventListener('DOMContentLoaded', function() {
     function convertTimeToMinutes(timeStr) {
         const [hours, minutes] = timeStr.split(':').map(Number);
         return hours * 60 + minutes;
+    }
+
+
+     // Matrix Chain Multiplication Algorithm
+     function matrixChainOrder(dims) {
+        const n = dims.length;
+        const dp = Array(n).fill().map(() => Array(n).fill(0));
+        
+        for (let len = 2; len <= n; len++) {
+            for (let i = 0; i < n - len + 1; i++) {
+                const j = i + len - 1;
+                dp[i][j] = Infinity;
+                
+                for (let k = i; k < j; k++) {
+                    const cost = dp[i][k] + dp[k+1][j] + dims[i][0] * dims[k][1] * dims[j][1];
+                    if (cost < dp[i][j]) {
+                        dp[i][j] = cost;
+                    }
+                }
+            }
+        }
+        console.table(dp);
+        return dp[0][n-1];
     }
 
     // Minimum Meeting Rooms Algorithm
