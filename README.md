@@ -48,7 +48,7 @@ Open `index.html` in your browser to use the app. No installation required.
 
 ## License
 
-MIT License. See [LICENSE](LICENSE) if available.
+MIT License.
 
 ## Author
 
