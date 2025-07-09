@@ -14,7 +14,7 @@ A simple, interactive web application to solve two classic algorithmic problems:
 
 ## Demo
 
-Open `index.html` in your browser to use the app. No installation required.
+Open `index.html` in your browser to use the app, or access the [demo link](https://azevedev.github.io/paa/)
 
 ## Usage
 
