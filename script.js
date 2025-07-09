@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return hours * 60 + minutes;
     }
 
-    // Matrix chain multiplication DP algorithm
+    // Matrix chain multiplication - DP algorithm
     function matrixChainOrder(dims) {
         const n = dims.length;
         const dp = Array(n).fill().map(() => Array(n).fill(0));
@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return dp[0][n-1];
     }
 
-    // Minimum meeting rooms algorithm using chronological ordering
+    // Minimum meeting rooms - chronological ordering
     function minMeetingRooms(intervals) {
         if (!intervals.length) return 0;
         
