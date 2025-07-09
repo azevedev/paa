@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const div = document.createElement('div');
         div.className = 'matrix-input';
         div.innerHTML = `
-            <label>Matriz ${count} Dimensões:</label>
+            <label>Dimensões da Matriz ${count}:</label>
             <input type="number" class="rows" placeholder="Linhas" min="1">
             <span>x</span>
             <input type="number" class="cols" placeholder="Colunas" min="1">
