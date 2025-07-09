@@ -42,10 +42,6 @@ Open `index.html` in your browser to use the app, or access the [demo link](http
 - **Matrix Chain Multiplication**: Uses dynamic programming to compute the minimum number of scalar multiplications needed to multiply a sequence of matrices.
 - **Minimum Meeting Rooms**: Uses a greedy algorithm to determine the minimum number of rooms required for overlapping intervals.
 
-## Customization
-- You can modify the styles in `style.css` to change the look and feel.
-- The logic for each calculator is in `script.js` and can be extended for more features.
-
 ## License
 
 MIT License.
