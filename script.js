@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Updates matrix labels to maintain sequential numbering
     function updateMatrixLabels() {
         document.querySelectorAll('.matrix-input').forEach((input, idx) => {
-            input.querySelector('label').textContent = `Matriz ${idx + 1} Dimensões:`;
+            input.querySelector('label').textContent = `Dimensões da Matriz ${idx + 1}:`;
         });
     }
 
@@ -248,7 +248,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         }
-        
+        console.log("finished dp:");
+        console.table(dp);
         return dp[0][n-1];
     }
 
@@ -259,6 +260,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // Sort start and end times separately
         const starts = intervals.map(i => i.start).sort((a, b) => a - b);
         const ends = intervals.map(i => i.end).sort((a, b) => a - b);
+
+        console.log("starts:");
+        console.table(starts);
+        console.log("ends:");
+        console.table(ends);
         
         let rooms = 0;
         let endIdx = 0;
